@@ -22,8 +22,8 @@ public class UserService {
 	private final UserRepository userRepository;
 
 	public UserResponse createUser(UserRequest userRequest) {
-		User u = userRepository.save(UserMapper.INSTANCE.toModel(userRequest));
-		return UserMapper.INSTANCE.toResponse(u);
+		User user = userRepository.save(UserMapper.INSTANCE.toModel(userRequest));
+		return UserMapper.INSTANCE.toResponse(user);
 	}
 
 	public List<UserResponse> getAllUsers() {
@@ -31,23 +31,17 @@ public class UserService {
 	}
 
 	public UserResponse getUserByName(String userName) {
-		UserResponse response = UserMapper.INSTANCE.toResponse(userRepository.findUsersByUserName(userName));
-		if (response == null) {
-			return null;
-		}
+		UserResponse response = UserMapper.INSTANCE.toResponse(userRepository.findUserByUserName(userName));
 		return response;
 	}
 
 	public Long deleteUserByName(String userName) {
 		Long response = userRepository.deleteUserByUserName(userName);
-		if (response == null) {
-			return null;
-		}
 		return response;
 	}
 
 	public UserResponse editUserByName(String userName, UserRequest userRequest) {
-		User user = userRepository.findUsersByUserName(userName);
+		User user = userRepository.findUserByUserName(userName);
 		if (user == null) {
 			return null;
 		}

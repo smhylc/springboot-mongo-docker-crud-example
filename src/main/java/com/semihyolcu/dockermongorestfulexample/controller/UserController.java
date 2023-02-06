@@ -16,33 +16,33 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
 	private final UserService userService;
 
-	@PostMapping("/add-user")
+	@PostMapping()
 	public ResponseEntity<UserResponse> addUser(@RequestBody UserRequest userRequest) {
 		return new ResponseEntity<>(userService.createUser(userRequest), HttpStatus.CREATED);
 	}
 
-	@GetMapping("/get-all-users")
+	@GetMapping()
 	public ResponseEntity<List<UserResponse>> getAllUsers() {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/get-user/{userName}")
+	@GetMapping(value = "/{userName}")
 	public ResponseEntity<UserResponse> getUserByName(@PathVariable String userName) {
 		return new ResponseEntity<>(userService.getUserByName(userName), HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "/delete-user/{userName}")
+	@DeleteMapping(value = "/{userName}")
 	public ResponseEntity<Long> deleteUserByName(@PathVariable String userName) {
 		return new ResponseEntity<>(userService.deleteUserByName(userName), HttpStatus.NO_CONTENT);
 	}
 
-	@PutMapping("/edit-user/{userName}")
+	@PutMapping("/{userName}")
 	public ResponseEntity<UserResponse> editUserByName(@PathVariable String userName, @RequestBody UserRequest userRequest) {
 		return new ResponseEntity<>(userService.editUserByName(userName, userRequest), HttpStatus.OK);
 	}
