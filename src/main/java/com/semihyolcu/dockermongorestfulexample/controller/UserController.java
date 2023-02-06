@@ -32,12 +32,12 @@ public class UserController {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/{userName}")
+	@GetMapping("/{userName}")
 	public ResponseEntity<UserResponse> getUserByName(@PathVariable String userName) {
 		return new ResponseEntity<>(userService.getUserByName(userName), HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "/{userName}")
+	@DeleteMapping("/{userName}")
 	public ResponseEntity<Long> deleteUserByName(@PathVariable String userName) {
 		return new ResponseEntity<>(userService.deleteUserByName(userName), HttpStatus.NO_CONTENT);
 	}
