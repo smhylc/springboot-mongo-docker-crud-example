@@ -22,12 +22,12 @@ public class UserController {
 
 	private final UserService userService;
 
-	@PostMapping()
+	@PostMapping
 	public ResponseEntity<UserResponse> addUser(@RequestBody UserRequest userRequest) {
 		return new ResponseEntity<>(userService.createUser(userRequest), HttpStatus.CREATED);
 	}
 
-	@GetMapping()
+	@GetMapping
 	public ResponseEntity<List<UserResponse>> getAllUsers() {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 	}
