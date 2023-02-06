@@ -30,8 +30,8 @@ The parameter " Username " is used for crud operations in the project, this para
 
 | API  | Functions |
 | ------------- | ------------- |
-| user/add-user  | Create New User  |
-| user/get-all-users  | Returns all users   |
-| user/get-user/{userName}  | Returns by username   |
-| user/delete-user/{userName}  | Delete by username   |
-| user/edit-user/{userName}  | Edit by username   |
+| /users  | Create New User  |
+| /users  | Returns all users   |
+| /users/{userName}  | Returns by username   |
+| /users/{userName}  | Delete by username   |
+| /users/{userName}  | Edit by username   |
