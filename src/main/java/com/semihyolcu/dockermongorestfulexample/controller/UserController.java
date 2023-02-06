@@ -42,7 +42,7 @@ public class UserController {
 		return new ResponseEntity<>(userService.deleteUserByName(userName), HttpStatus.NO_CONTENT);
 	}
 
-	@PutMapping("/{userName}")
+	@PutMapping(value = "/{userName}")
 	public ResponseEntity<UserResponse> editUserByName(@PathVariable String userName, @RequestBody UserRequest userRequest) {
 		return new ResponseEntity<>(userService.editUserByName(userName, userRequest), HttpStatus.OK);
 	}
