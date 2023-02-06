@@ -14,6 +14,7 @@ Libraries required for the project
 - Lombok
 - MapStruct 
 - Mongo Database 
+- Docker 
 
 
 # Project About
